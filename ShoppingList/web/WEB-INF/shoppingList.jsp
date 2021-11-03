@@ -15,6 +15,7 @@
         <%-- start of the form --%>
         <form action="" method="POST">
             <h2>Add Item</h2>
+            <label for="item">Add item</label>
             <input type="text" name="item">
             <input type="submit" name="Add Item">
             <input type="hidden" name="action" value="add">
@@ -23,7 +24,9 @@
         <%-- list of user items --%>
         <form action="" method="POST">
             <ul>
-                
+                <c:forEach var="item" items="${shoppingList}">
+                    <li>${item}</li>
+                </c:forEach>
             </ul>
         </form>
         
