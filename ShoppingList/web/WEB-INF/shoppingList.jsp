@@ -25,9 +25,13 @@
         <form action="" method="POST">
             <ul>
                 <c:forEach var="item" items="${shoppingList}">
+                    <input type="radio" id="${item}" name="theList" value="${item}"
                     <li>${item}</li>
+                    <br>
                 </c:forEach>
             </ul>
+            <input type="submit" value="delete">
+            <input type="hidden" name="action" value="delete">
         </form>
         
     </body>

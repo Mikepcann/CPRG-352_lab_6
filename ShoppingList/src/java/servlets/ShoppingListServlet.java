@@ -48,6 +48,7 @@ public class ShoppingListServlet extends HttpServlet {
 
         ArrayList<String> shoppingList = (ArrayList<String>) session.getAttribute("shoppingList");
         String item = "";
+        String deleteThis = "";
 
         System.out.println("usernameLocal" + usernameLocal + "**");
         System.out.println("usernameSession:" + usernameSSN + "**");
@@ -82,9 +83,19 @@ public class ShoppingListServlet extends HttpServlet {
                 shoppingList.add(item);
             }
             System.out.println("the array list is " + shoppingList.size() + " long");
-
+            session.setAttribute("shoppingList", shoppingList);
+            
             getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
             return;
+        } else if(action.equals("delete") && action != null & !action.equals("")){
+            deleteThis = request.getParameter("theList");
+            
+            shoppingList.remove(deleteThis);
+            
+            session.setAttribute("shoppingList", shoppingList);
+            getServletContext().getRequestDispatcher("/WEB-INF/shoppingList.jsp").forward(request, response);
+            return;
+            
         }
     }
 }
