@@ -9,7 +9,7 @@
     </head>
     <body>
         <h1>Shopping List</h1>
-        <p>Hello Mike</p> <%-- change this --%>
+        <p>Hello ${username}</p> <%-- change this --%>
         <p><a href="ShoppingList?action=logout">Logout</a></p>
         
         <%-- start of the form --%>
